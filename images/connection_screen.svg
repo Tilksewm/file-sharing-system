@@ -1,0 +1,53 @@
+<svg viewBox="0 0 520 480" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
+  <!-- Window frame -->
+  <rect width="520" height="480" rx="10" fill="#e8e8e8" stroke="#aaa" stroke-width="1.5"/>
+  <!-- Title bar -->
+  <rect x="0" y="0" width="520" height="36" rx="10" fill="#3c3c3c"/>
+  <rect x="0" y="18" width="520" height="18" fill="#3c3c3c"/>
+  <!-- Window controls -->
+  <circle cx="18" cy="18" r="7" fill="#ff5f57"/>
+  <circle cx="38" cy="18" r="7" fill="#febc2e"/>
+  <circle cx="58" cy="18" r="7" fill="#28c840"/>
+  <text x="260" y="23" text-anchor="middle" font-size="12" fill="#ccc">FileShare: Client-to-Client File Transfer</text>
+
+  <!-- App panel (light blue) -->
+  <rect x="10" y="46" width="500" height="424" rx="6" fill="#add8e6"/>
+
+  <!-- Title text -->
+  <text x="260" y="105" text-anchor="middle" font-size="16" font-weight="bold" fill="#1a1a2e">FileShare System - Client to Client Sharing</text>
+
+  <!-- Radio buttons row -->
+  <rect x="130" y="120" width="260" height="36" rx="6" fill="#b8e0ea"/>
+  <!-- TCP radio -->
+  <circle cx="155" cy="138" r="8" fill="white" stroke="#555" stroke-width="1.5"/>
+  <circle cx="155" cy="138" r="4" fill="#1a6faf"/>
+  <text x="168" y="143" font-size="13" fill="#1a1a2e" font-weight="bold">TCP (Reliable)</text>
+  <!-- UDP radio -->
+  <circle cx="295" cy="138" r="8" fill="white" stroke="#555" stroke-width="1.5"/>
+  <text x="308" y="143" font-size="13" fill="#1a1a2e">UDP (Efficient)</text>
+
+  <!-- Client ID label -->
+  <text x="260" y="186" text-anchor="middle" font-size="13" fill="#1a1a2e" font-weight="bold">Client ID:</text>
+  <!-- Client ID input -->
+  <rect x="110" y="196" width="300" height="34" rx="5" fill="white" stroke="#aaa" stroke-width="1.5"/>
+  <text x="260" y="218" text-anchor="middle" font-size="13" fill="#333">Client-427</text>
+
+  <!-- Server IP label -->
+  <text x="260" y="258" text-anchor="middle" font-size="13" fill="#1a1a2e" font-weight="bold">Server IP:</text>
+  <!-- Server IP input -->
+  <rect x="110" y="268" width="300" height="34" rx="5" fill="white" stroke="#aaa" stroke-width="1.5"/>
+  <text x="260" y="290" text-anchor="middle" font-size="13" fill="#333">127.0.0.1</text>
+
+  <!-- Port label -->
+  <text x="260" y="332" text-anchor="middle" font-size="13" fill="#1a1a2e" font-weight="bold">Port:</text>
+  <!-- Port input -->
+  <rect x="110" y="342" width="300" height="34" rx="5" fill="white" stroke="#aaa" stroke-width="1.5"/>
+  <text x="260" y="364" text-anchor="middle" font-size="13" fill="#333">5000</text>
+
+  <!-- Connect button -->
+  <rect x="110" y="396" width="300" height="44" rx="7" fill="#d2b48c"/>
+  <text x="260" y="423" text-anchor="middle" font-size="14" font-weight="bold" fill="#1a1a2e">CONNECT TO SERVER</text>
+
+  <!-- Caption -->
+  <text x="260" y="464" text-anchor="middle" font-size="10" fill="#444" font-style="italic">Fig 1. Connection screen — enter your Client ID and server address before connecting</text>
+</svg>

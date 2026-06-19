@@ -1,0 +1,106 @@
+<svg viewBox="0 0 860 500" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
+  <!-- Background -->
+  <rect width="860" height="500" fill="#f8f9fb" rx="12"/>
+
+  <!-- Title -->
+  <text x="430" y="38" text-anchor="middle" font-size="18" font-weight="bold" fill="#1a1a2e">FileShare System — Architecture Overview</text>
+
+  <!-- ========== SERVER BOX ========== -->
+  <rect x="290" y="65" width="280" height="130" rx="10" fill="#1a1a2e" stroke="#4a90d9" stroke-width="2.5"/>
+  <!-- Server icon (simple stack) -->
+  <rect x="310" y="82" width="40" height="8" rx="3" fill="#4a90d9"/>
+  <rect x="310" y="94" width="40" height="8" rx="3" fill="#4a90d9" opacity="0.7"/>
+  <rect x="310" y="106" width="40" height="8" rx="3" fill="#4a90d9" opacity="0.4"/>
+  <!-- Server label -->
+  <text x="430" y="90" text-anchor="middle" font-size="15" font-weight="bold" fill="#ffffff">FileServer.java</text>
+  <text x="430" y="110" text-anchor="middle" font-size="11" fill="#aad4f5">Port 5000 — TCP &amp; UDP</text>
+  <line x1="305" y1="120" x2="555" y2="120" stroke="#4a90d9" stroke-width="0.8" opacity="0.4"/>
+  <text x="360" y="135" text-anchor="middle" font-size="10" fill="#ccddee">● Client Registry</text>
+  <text x="500" y="135" text-anchor="middle" font-size="10" fill="#ccddee">● File Storage</text>
+  <text x="360" y="152" text-anchor="middle" font-size="10" fill="#ccddee">● Peer Lookup</text>
+  <text x="500" y="152" text-anchor="middle" font-size="10" fill="#ccddee">● UDP Receiver</text>
+  <text x="430" y="183" text-anchor="middle" font-size="10" fill="#88bbdd" font-style="italic">server_storage/</text>
+
+  <!-- ========== CLIENT 1 ========== -->
+  <rect x="50" y="310" width="210" height="140" rx="10" fill="#ffffff" stroke="#27ae60" stroke-width="2.5"/>
+  <rect x="50" y="310" width="210" height="32" rx="10" fill="#27ae60"/>
+  <rect x="50" y="330" width="210" height="12" fill="#27ae60"/>
+  <text x="155" y="332" text-anchor="middle" font-size="13" font-weight="bold" fill="#ffffff">Client 1 (Alice)</text>
+  <text x="155" y="358" text-anchor="middle" font-size="10" fill="#333">FileClientGUI.java</text>
+  <text x="155" y="374" text-anchor="middle" font-size="10" fill="#555">P2P Server: port 12346</text>
+  <line x1="65" y1="385" x2="245" y2="385" stroke="#ddd" stroke-width="1"/>
+  <text x="155" y="400" text-anchor="middle" font-size="9.5" fill="#27ae60">📁 client_shared_Alice/</text>
+  <text x="155" y="416" text-anchor="middle" font-size="9" fill="#777">TCP upload / UDP upload</text>
+  <text x="155" y="432" text-anchor="middle" font-size="9" fill="#777">Browse &amp; Download</text>
+
+  <!-- ========== CLIENT 2 ========== -->
+  <rect x="325" y="310" width="210" height="140" rx="10" fill="#ffffff" stroke="#e67e22" stroke-width="2.5"/>
+  <rect x="325" y="310" width="210" height="32" rx="10" fill="#e67e22"/>
+  <rect x="325" y="330" width="210" height="12" fill="#e67e22"/>
+  <text x="430" y="332" text-anchor="middle" font-size="13" font-weight="bold" fill="#ffffff">Client 2 (Bob)</text>
+  <text x="430" y="358" text-anchor="middle" font-size="10" fill="#333">FileClientGUI2.java</text>
+  <text x="430" y="374" text-anchor="middle" font-size="10" fill="#555">P2P Server: port 12346</text>
+  <line x1="340" y1="385" x2="520" y2="385" stroke="#ddd" stroke-width="1"/>
+  <text x="430" y="400" text-anchor="middle" font-size="9.5" fill="#e67e22">📁 client_shared_Bob/</text>
+  <text x="430" y="416" text-anchor="middle" font-size="9" fill="#777">TCP upload / UDP upload</text>
+  <text x="430" y="432" text-anchor="middle" font-size="9" fill="#777">Browse &amp; Download</text>
+
+  <!-- ========== CLIENT 3 ========== -->
+  <rect x="600" y="310" width="210" height="140" rx="10" fill="#ffffff" stroke="#8e44ad" stroke-width="2.5"/>
+  <rect x="600" y="310" width="210" height="32" rx="10" fill="#8e44ad"/>
+  <rect x="600" y="330" width="210" height="12" fill="#8e44ad"/>
+  <text x="705" y="332" text-anchor="middle" font-size="13" font-weight="bold" fill="#ffffff">Client 3 (Charlie)</text>
+  <text x="705" y="358" text-anchor="middle" font-size="10" fill="#333">FileClientGUI3.java</text>
+  <text x="705" y="374" text-anchor="middle" font-size="10" fill="#555">P2P Server: port 12346</text>
+  <line x1="615" y1="385" x2="795" y2="385" stroke="#ddd" stroke-width="1"/>
+  <text x="705" y="400" text-anchor="middle" font-size="9.5" fill="#8e44ad">📁 client_shared_Charlie/</text>
+  <text x="705" y="416" text-anchor="middle" font-size="9" fill="#777">TCP upload / UDP upload</text>
+  <text x="705" y="432" text-anchor="middle" font-size="9" fill="#777">Browse &amp; Download</text>
+
+  <!-- ========== ARROWS: Server <-> Clients ========== -->
+  <!-- Server to Client 1 -->
+  <line x1="340" y1="195" x2="200" y2="310" stroke="#4a90d9" stroke-width="2" stroke-dasharray="6,3"/>
+  <polygon points="196,308 204,308 200,318" fill="#4a90d9"/>
+  <text x="245" y="258" text-anchor="middle" font-size="9.5" fill="#4a90d9" font-weight="bold">TCP :5000</text>
+  <text x="245" y="271" text-anchor="middle" font-size="9" fill="#4a90d9">REGISTER / DIR</text>
+  <text x="245" y="283" text-anchor="middle" font-size="9" fill="#4a90d9">PUT / DOWNLOAD</text>
+
+  <!-- Server to Client 2 -->
+  <line x1="430" y1="195" x2="430" y2="310" stroke="#4a90d9" stroke-width="2" stroke-dasharray="6,3"/>
+  <polygon points="426,308 434,308 430,318" fill="#4a90d9"/>
+  <text x="468" y="248" text-anchor="middle" font-size="9.5" fill="#4a90d9" font-weight="bold">TCP :5000</text>
+  <text x="468" y="261" text-anchor="middle" font-size="9" fill="#4a90d9">UDP :5000</text>
+
+  <!-- Server to Client 3 -->
+  <line x1="520" y1="195" x2="660" y2="310" stroke="#4a90d9" stroke-width="2" stroke-dasharray="6,3"/>
+  <polygon points="656,308 664,308 660,318" fill="#4a90d9"/>
+  <text x="615" y="258" text-anchor="middle" font-size="9.5" fill="#4a90d9" font-weight="bold">TCP :5000</text>
+  <text x="615" y="271" text-anchor="middle" font-size="9" fill="#4a90d9">REGISTER / DIR</text>
+  <text x="615" y="283" text-anchor="middle" font-size="9" fill="#4a90d9">PUT / DOWNLOAD</text>
+
+  <!-- ========== P2P ARROWS between clients ========== -->
+  <!-- Client 1 <-> Client 2 -->
+  <line x1="260" y1="380" x2="325" y2="380" stroke="#e74c3c" stroke-width="2"/>
+  <polygon points="323,376 331,380 323,384" fill="#e74c3c"/>
+  <polygon points="262,376 254,380 262,384" fill="#e74c3c"/>
+  <text x="292" y="370" text-anchor="middle" font-size="9" fill="#e74c3c" font-weight="bold">P2P TCP</text>
+  <text x="292" y="394" text-anchor="middle" font-size="8.5" fill="#e74c3c">:12346</text>
+
+  <!-- Client 2 <-> Client 3 -->
+  <line x1="535" y1="380" x2="600" y2="380" stroke="#e74c3c" stroke-width="2"/>
+  <polygon points="598,376 606,380 598,384" fill="#e74c3c"/>
+  <polygon points="537,376 529,380 537,384" fill="#e74c3c"/>
+  <text x="567" y="370" text-anchor="middle" font-size="9" fill="#e74c3c" font-weight="bold">P2P TCP</text>
+  <text x="567" y="394" text-anchor="middle" font-size="8.5" fill="#e74c3c">:12346</text>
+
+  <!-- Client 1 <-> Client 3 curved -->
+  <path d="M 155 450 Q 430 490 705 450" stroke="#e74c3c" stroke-width="1.5" fill="none" stroke-dasharray="5,3"/>
+  <text x="430" y="488" text-anchor="middle" font-size="9" fill="#e74c3c">P2P TCP :12346</text>
+
+  <!-- Legend -->
+  <rect x="30" y="458" width="200" height="32" rx="6" fill="#fff" stroke="#ccc" stroke-width="1"/>
+  <line x1="42" y1="469" x2="68" y2="469" stroke="#4a90d9" stroke-width="2" stroke-dasharray="5,3"/>
+  <text x="74" y="473" font-size="9.5" fill="#555">Server ↔ Client (TCP/UDP)</text>
+  <line x1="42" y1="483" x2="68" y2="483" stroke="#e74c3c" stroke-width="2"/>
+  <text x="74" y="487" font-size="9.5" fill="#555">Peer-to-Peer (TCP)</text>
+</svg>

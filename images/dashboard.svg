@@ -1,0 +1,98 @@
+<svg viewBox="0 0 820 560" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
+  <!-- Window frame -->
+  <rect width="820" height="560" rx="10" fill="#e8e8e8" stroke="#aaa" stroke-width="1.5"/>
+  <!-- Title bar -->
+  <rect x="0" y="0" width="820" height="36" rx="10" fill="#3c3c3c"/>
+  <rect x="0" y="18" width="820" height="18" fill="#3c3c3c"/>
+  <circle cx="18" cy="18" r="7" fill="#ff5f57"/>
+  <circle cx="38" cy="18" r="7" fill="#febc2e"/>
+  <circle cx="58" cy="18" r="7" fill="#28c840"/>
+  <text x="410" y="23" text-anchor="middle" font-size="12" fill="#ccc">FileShare: Client-to-Client File Transfer</text>
+
+  <!-- Main white panel -->
+  <rect x="0" y="36" width="820" height="524" fill="white"/>
+
+  <!-- Header toolbar (light blue) -->
+  <rect x="0" y="36" width="820" height="48" fill="#add8e6"/>
+  <!-- Buttons in toolbar -->
+  <rect x="10" y="47" width="190" height="26" rx="5" fill="#d2b48c"/>
+  <text x="105" y="64" text-anchor="middle" font-size="11" font-weight="bold" fill="#1a1a2e">🔄 Refresh Server Files</text>
+  <rect x="210" y="47" width="200" height="26" rx="5" fill="#d2b48c"/>
+  <text x="310" y="64" text-anchor="middle" font-size="11" font-weight="bold" fill="#1a1a2e">🔄 Refresh Online Clients</text>
+  <rect x="420" y="47" width="165" height="26" rx="5" fill="#64c864"/>
+  <text x="502" y="64" text-anchor="middle" font-size="11" font-weight="bold" fill="#1a1a2e">📁 My Shared Files</text>
+
+  <!-- Tabs -->
+  <rect x="0" y="84" width="820" height="34" fill="#f0f0f0"/>
+  <!-- Active tab -->
+  <rect x="0" y="84" width="180" height="34" fill="white" stroke="#ccc" stroke-width="1"/>
+  <text x="90" y="106" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a1a2e">Server Files</text>
+  <!-- Inactive tab -->
+  <rect x="180" y="84" width="240" height="34" fill="#ddd" stroke="#ccc" stroke-width="1"/>
+  <text x="300" y="106" text-anchor="middle" font-size="12" fill="#555">Online Clients (Alice)</text>
+
+  <!-- ===== SERVER FILES TABLE ===== -->
+  <!-- Table header -->
+  <rect x="0" y="118" width="820" height="30" fill="#f5f5f5" stroke="#ddd" stroke-width="1"/>
+  <text x="200" y="138" text-anchor="middle" font-size="11" font-weight="bold" fill="#333">Filename</text>
+  <text x="580" y="138" text-anchor="middle" font-size="11" font-weight="bold" fill="#333">Size</text>
+  <text x="740" y="138" text-anchor="middle" font-size="11" font-weight="bold" fill="#333">Action</text>
+  <line x1="440" y1="118" x2="440" y2="148" stroke="#ddd" stroke-width="1"/>
+  <line x1="670" y1="118" x2="670" y2="148" stroke="#ddd" stroke-width="1"/>
+
+  <!-- Row 1 -->
+  <rect x="0" y="148" width="820" height="44" fill="white" stroke="#eee" stroke-width="1"/>
+  <text x="20" y="175" font-size="12" fill="#1a1a2e">📄 project_report_final.pdf</text>
+  <text x="580" y="175" text-anchor="middle" font-size="12" fill="#555">2,340 KB</text>
+  <rect x="686" y="158" width="118" height="26" rx="5" fill="#64c8ff"/>
+  <text x="745" y="175" text-anchor="middle" font-size="11" font-weight="bold" fill="#1a1a2e">⬇ Download</text>
+
+  <!-- Row 2 -->
+  <rect x="0" y="192" width="820" height="44" fill="#fafafa" stroke="#eee" stroke-width="1"/>
+  <text x="20" y="219" font-size="12" fill="#1a1a2e">📦 dataset_v2.zip</text>
+  <text x="580" y="219" text-anchor="middle" font-size="12" fill="#555">15,800 KB</text>
+  <rect x="686" y="202" width="118" height="26" rx="5" fill="#64c8ff"/>
+  <text x="745" y="219" text-anchor="middle" font-size="11" font-weight="bold" fill="#1a1a2e">⬇ Download</text>
+
+  <!-- Row 3 -->
+  <rect x="0" y="236" width="820" height="44" fill="white" stroke="#eee" stroke-width="1"/>
+  <text x="20" y="263" font-size="12" fill="#1a1a2e">🖼️ presentation_slides.pptx</text>
+  <text x="580" y="263" text-anchor="middle" font-size="12" fill="#555">890 KB</text>
+  <rect x="686" y="246" width="118" height="26" rx="5" fill="#64c8ff"/>
+  <text x="745" y="263" text-anchor="middle" font-size="11" font-weight="bold" fill="#1a1a2e">⬇ Download</text>
+
+  <!-- Row 4 -->
+  <rect x="0" y="280" width="820" height="44" fill="#fafafa" stroke="#eee" stroke-width="1"/>
+  <text x="20" y="307" font-size="12" fill="#1a1a2e">📄 notes.txt</text>
+  <text x="580" y="307" text-anchor="middle" font-size="12" fill="#555">12 KB</text>
+  <rect x="686" y="290" width="118" height="26" rx="5" fill="#64c8ff"/>
+  <text x="745" y="307" text-anchor="middle" font-size="11" font-weight="bold" fill="#1a1a2e">⬇ Download</text>
+
+  <!-- ===== FOOTER ===== -->
+  <rect x="0" y="380" width="820" height="180" fill="#f8f8f8" stroke="#ddd" stroke-width="1"/>
+
+  <!-- Upload button row -->
+  <rect x="10" y="390" width="220" height="32" rx="6" fill="#d2b48c"/>
+  <text x="120" y="411" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a1a2e">📤 UPLOAD FILE TO SERVER</text>
+  <rect x="240" y="390" width="165" height="32" rx="6" fill="#e8e8e8" stroke="#bbb" stroke-width="1"/>
+  <text x="322" y="411" text-anchor="middle" font-size="12" fill="#333">📁 Open Shared Folder</text>
+
+  <!-- Speed label -->
+  <text x="620" y="411" font-size="12" fill="#555">Speed: 24.83 MB/s</text>
+
+  <!-- Progress bar -->
+  <rect x="10" y="432" width="800" height="18" rx="4" fill="#e0e0e0"/>
+  <rect x="10" y="432" width="560" height="18" rx="4" fill="#4a90d9"/>
+  <text x="410" y="445" text-anchor="middle" font-size="10" fill="white" font-weight="bold">70%</text>
+
+  <!-- Status log -->
+  <rect x="10" y="460" width="800" height="90" rx="4" fill="white" stroke="#ccc" stroke-width="1"/>
+  <text x="20" y="477" font-size="10" fill="#27ae60">✓ Registered successfully! 2 other clients online.</text>
+  <text x="20" y="492" font-size="10" fill="#333">Server file list updated. Found 4 files.</text>
+  <text x="20" y="507" font-size="10" fill="#333">Found 2 clients online</text>
+  <text x="20" y="522" font-size="10" fill="#333">Downloading 'dataset_v2.zip' from server...</text>
+  <text x="20" y="537" font-size="10" fill="#27ae60">✓ File also added to your shared folder for others to access</text>
+
+  <!-- Caption -->
+  <text x="410" y="558" text-anchor="middle" font-size="10" fill="#777" font-style="italic">Fig 2. Dashboard — Server Files tab showing available files and an active download in progress</text>
+</svg>
