@@ -4,6 +4,17 @@ A Java-based peer-to-peer file sharing application with a central server for coo
 
 ---
 
+## Architecture Overview
+
+![Architecture Overview](images/architecture.svg)
+
+1. Each client **registers** with the server on startup.
+2. Clients query the server for a **list of online peers**.
+3. Files can be transferred via the server (PUT/DOWNLOAD) or **directly peer-to-peer** (port 12346).
+4. Each client runs its own embedded file-sharing server on port `12346`.
+
+---
+
 ## Project Structure
 
 ```
@@ -17,33 +28,6 @@ fileshare/
 ```
 
 > `FileClientGUI2.java` and `FileClientGUI3.java` are replicas of `FileClientGUI.java`. Run each in a separate JVM process to simulate multiple peers on the same machine.
-
----
-
-## How It Works
-
-### Architecture
-
-```
-         ┌─────────────────────┐
-         │     FileServer      │  (Port 5000 — TCP & UDP)
-         │  - Client registry  │
-         │  - File storage     │
-         │  - Peer lookup      │
-         └────────┬────────────┘
-                  │  TCP (register, list, upload, download)
-        ┌─────────┴──────────────────┐
-        │                            │
-  ┌─────┴──────┐              ┌──────┴─────┐
-  │  Client 1  │◄────────────►│  Client 2  │
-  │  Port 12346│   Direct P2P │  Port 12346│
-  └────────────┘   TCP socket └────────────┘
-```
-
-1. Each client **registers** with the server on startup.
-2. Clients query the server for a **list of online peers**.
-3. Files can be transferred via the server (PUT/DOWNLOAD) or **directly peer-to-peer** (port 12346).
-4. Each client runs its own embedded file-sharing server on port `12346`.
 
 ---
 
@@ -64,13 +48,6 @@ The central server listens on **port 5000** for both TCP and UDP traffic.
 | `DOWNLOAD` | Sends a file to a client |
 | `DOWNLOAD_FROM_CLIENT` | Looks up a peer's address for direct P2P transfer |
 
-**UDP Transfer:**
-
-- Client sends a `START:<filename>` signal to begin.
-- Data is sent in sequenced `DATA` packets (sequence number + length + bytes).
-- Client sends `END` when done.
-- The server detects and logs out-of-order or missing packets.
-
 **Storage:** Files are saved to `server_storage/` in the working directory.
 
 ---
@@ -79,14 +56,27 @@ The central server listens on **port 5000** for both TCP and UDP traffic.
 
 A Swing-based GUI client. Each instance represents one peer in the network.
 
-**Key features:**
+#### Connection Screen
 
-- **Connection Page** — Enter server IP, port, and a unique Client ID before connecting.
-- **Protocol Selection** — Choose TCP (reliable) or UDP (fast) for server uploads.
-- **Server Files tab** — Browse and download files stored on the server.
-- **Online Clients tab** — See peers currently online, browse their shared files, or push a file directly to them.
-- **My Shared Files** — View files in your local shared folder (`client_shared_<ClientID>/`).
-- **Progress Bar + Speed Meter** — Live transfer speed (MB/s) and progress during any transfer.
+![Connection Screen](images/connection_screen.svg)
+
+**Key fields:**
+- **Client ID** — unique name for this peer (e.g. `Alice`, `Bob`)
+- **Server IP** — address of the running `FileServer`
+- **Port** — default `5000`
+- **Protocol** — TCP (reliable) or UDP (fast) for server uploads
+
+#### Dashboard — Server Files Tab
+
+![Dashboard](images/dashboard.svg)
+
+Browse all files stored on the server, download any of them, and upload new files via TCP or UDP.
+
+#### Dashboard — Online Clients Tab
+
+![Online Clients](images/online_clients.svg)
+
+See which peers are online, browse their shared folders, download files directly from them, or push a file to a peer.
 
 **Ports used by the client:**
 
@@ -96,6 +86,27 @@ A Swing-based GUI client. Each instance represents one peer in the network.
 | `12346` | Embedded P2P server (receives files from other clients) |
 
 **Shared folder:** `client_shared_<ClientID>/` in the working directory. Files uploaded to the server or downloaded from it are automatically copied here so other peers can access them.
+
+---
+
+## Transfer Modes
+
+![TCP vs UDP Comparison](images/tcp_vs_udp.svg)
+
+### TCP Upload (to server)
+Reliable, ordered delivery. Recommended for critical files. Uses a persistent socket stream with progress tracking and an 8192-byte buffer.
+
+### UDP Upload (to server)
+
+![UDP Packet Flow](images/udp_flow.svg)
+
+Faster for large files on reliable local networks. Each chunk is wrapped in a sequenced `DATA` packet. The server detects and logs any gaps, but **does not retransmit**. Use TCP if data integrity is essential.
+
+### Peer-to-Peer (client to client)
+Always uses TCP via a direct socket connection to the peer's embedded server on port `12346`. Two modes:
+
+- **Browse & Download** — View a peer's shared folder and pull a specific file.
+- **Send File** — Push a file directly to a peer; the recipient is prompted to accept or decline.
 
 ---
 
@@ -118,6 +129,17 @@ javac -d out com/fileshare/client/FileClientGUI.java
 
 ```bash
 java -cp out com.fileshare.server.FileServer
+```
+
+Expected output:
+```
+=========================================
+File Sharing Server Started
+TCP & UDP Listening on port: 5000
+Storage directory: /path/to/server_storage
+=========================================
+✓ TCP Server listening on port 5000
+✓ UDP Server listening on port 5000
 ```
 
 ### 3. Start Client Instances
@@ -159,22 +181,6 @@ SwingUtilities.invokeLater(() -> new FileClientGUI4());
 ```
 
 > Each client instance must be run in its own JVM process. Running two instances of the same class in the same JVM will cause port `12346` conflicts.
-
----
-
-## Transfer Modes
-
-### TCP Upload (to server)
-Reliable, ordered delivery. Recommended for critical files. Uses a persistent socket stream with progress tracking.
-
-### UDP Upload (to server)
-Faster for large files on reliable local networks. Packets are sequenced and monitored — the server logs any gaps, but **does not retransmit**. Use TCP if data integrity is essential.
-
-### Peer-to-Peer (client to client)
-Always uses TCP via a direct socket connection to the peer's embedded server on port `12346`. Two modes:
-
-- **Browse & Download** — View a peer's shared folder and pull a specific file.
-- **Send File** — Push a file directly to a peer; the recipient is prompted to accept or decline.
 
 ---
 
